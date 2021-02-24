@@ -31,6 +31,6 @@ public class MemberDAO {
 	}
 	
 	public void memberDelete(String userid) throws Exception {
-		sqlSession.delete("sampleMapper.memeber Delete", userid);
+		sqlSession.delete("sampleMapper.memberDelete", userid);
 	}
 }

@@ -30,7 +30,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public MemberVO memberView(String userid) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return memberDAO.memberView(userid);
 	}
 
 	@Override
