@@ -2,6 +2,7 @@ package com.human.edu;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -44,16 +45,19 @@ public class TestMemberService {
 		memberVO.setUsername("수정 됨");
 		memberVO.setUserpw("4321");
 		memberVO.setEmail("abc@abc.com");
+		Date nowDate = new Date();
+		memberVO.setRegdate(nowDate);
+		memberVO.setUpdatedate(nowDate);
 		memberService.memberUpdate(memberVO);
 	}
 	@Test
 	public void memberInsert() throws Exception {
 		List<MemberVO> memberList = memberService.memberSelect();
 		MemberVO memberVO = new MemberVO();
-		memberVO.setUserid("user_"+memberList.size());
-		memberVO.setUsername("사용자_"+memberList.size());
+		memberVO.setUserid("user_"+(memberList.size()+1));
+		memberVO.setUsername("사용자_"+(memberList.size()+1));
 		memberVO.setUserpw("1234");
-		memberVO.setEmail("user_"+memberList.size()+"@abc.com");
+		memberVO.setEmail("user_"+memberList.size()+"@.abc.com");
 		memberService.memberInsert(memberVO);
 	}
 	
